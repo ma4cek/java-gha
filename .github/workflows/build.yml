@@ -1,0 +1,33 @@
+name: Build source
+
+on:
+  workflow_dispatch
+
+jobs:
+  build:
+    name: Build source
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+
+      - run: java -version
+
+      - name: Build with gradle
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: |
+            --no-daemon
+            build
+
+      - name: Run the app
+        run: |
+          echo "Expect hello world"
+          java -jar app/build/libs/app.jar
