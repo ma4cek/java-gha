@@ -26,4 +26,6 @@ jobs:
           java-version: '8'
 
       - name: Run the app
-        run: java -jar app/build/libs/app.jar
+        run: |
+          java -version
+          java -jar app/build/libs/app.jar
