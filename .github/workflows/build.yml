@@ -12,6 +12,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+
+      - run: java -version
+
       - name: Build with gradle
         uses: gradle/gradle-build-action@v3
         with:
@@ -19,13 +27,7 @@ jobs:
             --no-daemon
             build
 
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'zulu'
-          java-version: '8'
-
       - name: Run the app
         run: |
-          java -version
+          echo "Expect hello world"
           java -jar app/build/libs/app.jar
