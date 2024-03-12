@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build source RHEL
     runs-on: ubuntu-latest
-    container: redhat/ubi9-minimal
+    container: redhat/ubi9
 
     steps:
       - run: |
