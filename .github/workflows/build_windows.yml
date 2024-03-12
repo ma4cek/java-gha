@@ -1,11 +1,11 @@
-name: Build source
+name: Build source Windows
 
 on:
   workflow_dispatch
 
 jobs:
   build:
-    name: Build source
+    name: Build source Windows
     runs-on: windows-latest
 
     steps:
