@@ -1,11 +1,11 @@
-name: Build source
+name: Build source RHEL
 
 on:
   workflow_dispatch
 
 jobs:
   build:
-    name: Build source
+    name: Build source RHEL
     runs-on: ubuntu-latest
     container: redhat/ubi9-minimal
 
