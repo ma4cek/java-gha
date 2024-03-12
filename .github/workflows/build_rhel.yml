@@ -1,19 +1,21 @@
-name: Build source
+name: Build source RHEL
 
 on:
   workflow_dispatch
 
 jobs:
   build:
-    name: Build source
+    name: Build source RHEL
     runs-on: ubuntu-latest
-    container: redhat/ubi9-minimal
+    container: redhat/ubi9
 
     steps:
+      - run: |
+          cat /etc/redhat-release
+          dnf -y install git
+          
       - name: Checkout
         uses: actions/checkout@v4
-
-      - run: cat /etc/redhat-release
 
       - name: Setup Java
         uses: actions/setup-java@v4
